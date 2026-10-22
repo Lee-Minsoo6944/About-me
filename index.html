@@ -5,26 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>이민수 소개 | Portfolio</title>
     <style>
-        /* 기본 설정 및 팜플렛 배경 */
+        /* 기본 설정 및 다크 테마 배경 */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Pretendard', 'Malgun Gothic', sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #f0f2f5; /* 부드러운 회색 배경 */
+            color: #e2e8f0; /* 기본 글자색을 밝은 회색으로 변경 */
+            background-color: #0f172a; /* 딥 네이비 배경 */
             display: flex;
             justify-content: center;
             padding: 30px 15px;
         }
         
-        /* 팜플렛 용지 느낌의 컨테이너 */
+        /* 팜플렛 용지 느낌의 컨테이너 (살짝 밝은 네이비) */
         .container {
             width: 100%;
             max-width: 1100px;
-            background-color: #ffffff;
+            background-color: #1e293b; 
             padding: 40px;
             border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* 그림자 진하게 */
+            border: 1px solid #334155;
         }
 
         /* 헤더 (인사말 및 목적) */
@@ -32,25 +33,25 @@
             text-align: center;
             margin-bottom: 40px;
             padding-bottom: 30px;
-            border-bottom: 1px solid #eaeaea;
+            border-bottom: 1px solid #334155;
         }
         h1 { 
-            color: #1a252f; 
+            color: #ffffff; /* 흰색으로 변경 */
             font-size: 2.4em; 
             font-weight: 800;
             margin-bottom: 15px; 
             letter-spacing: -1px;
         }
         .purpose { 
-            color: #555; 
+            color: #cbd5e1; 
             font-size: 1.1em; 
-            background-color: #f8f9fa; 
+            background-color: #0f172a; 
             padding: 10px 25px; 
             border-radius: 30px; 
             display: inline-block;
-            border: 1px solid #e0e0e0;
+            border: 1px solid #334155;
         }
-        .purpose strong { color: #d4af37; } /* 골드 포인트 */
+        .purpose strong { color: #fbbf24; } /* 골드 포인트 */
 
         /* 2단 그리드 레이아웃 */
         .content-wrapper {
@@ -62,36 +63,36 @@
 
         /* 카드 디자인 */
         .card { 
-            background: #ffffff; 
-            border: 1px solid #eaeaea; 
+            background: #1e293b; 
+            border: 1px solid #334155; 
             padding: 30px; 
             border-radius: 8px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             height: 100%;
-            transition: transform 0.2s ease;
+            transition: transform 0.2s ease, border-color 0.2s;
         }
         .card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            border-color: #fbbf24; /* 호버 시 골드 테두리 */
         }
         
-        /* 카드 제목 (네이비 + 골드 밑줄) */
+        /* 카드 제목 (흰색 + 골드 밑줄) */
         .card h2 { 
-            color: #1a252f; 
+            color: #ffffff; 
             font-size: 1.3em; 
             margin-bottom: 20px; 
             padding-bottom: 10px;
-            border-bottom: 2px solid #d4af37;
+            border-bottom: 2px solid #fbbf24;
             display: inline-block;
         }
         
-        .card p { margin: 12px 0; font-size: 1em; color: #444; }
+        .card p { margin: 12px 0; font-size: 1em; color: #cbd5e1; } /* 본문 글자색 밝게 */
         
         /* [상황][행동][결과] 뱃지 스타일 */
         .label { 
             font-weight: 700; 
-            color: #ffffff; 
-            background-color: #34495e; 
+            color: #0f172a; /* 어두운 글자색 */
+            background-color: #fbbf24; /* 골드 배경 */
             padding: 3px 8px; 
             border-radius: 4px; 
             font-size: 0.85em;
@@ -104,17 +105,18 @@
 
         /* 근거 링크 영역 */
         .evidence-box {
-            background: #f8f9fa;
-            border: 1px solid #eaeaea;
+            background: #0f172a;
+            border: 1px solid #334155;
             padding: 30px;
             border-radius: 8px;
             text-align: center;
         }
         .evidence-box h2 { 
-            color: #1a252f; 
+            color: #ffffff; 
             font-size: 1.3em; 
             margin-bottom: 15px; 
         }
+        .evidence-box p { color: #cbd5e1; }
         .evidence-links { 
             list-style: none; 
             padding: 0; 
@@ -125,35 +127,36 @@
             gap: 15px; 
         }
         .evidence-links li { 
-            background: #ffffff; 
-            border: 1px solid #d4af37;
+            background: #1e293b; 
+            border: 1px solid #fbbf24;
             padding: 10px 15px; 
             border-radius: 5px; 
             font-size: 0.95em; 
             transition: background 0.2s;
         }
         .evidence-links li:hover {
-            background: #fffdf5;
+            background: #334155;
         }
-        .evidence-links a { color: #1a252f; text-decoration: none; font-weight: 600; }
+        .evidence-links a { color: #ffffff; text-decoration: none; font-weight: 600; }
         
-        .footer-link { margin-top: 25px; font-size: 1em; color: #666; }
-        .footer-link a { color: #d4af37; text-decoration: none; font-weight: 700; border-bottom: 1px solid #d4af37; padding-bottom: 2px;}
-        .footer-link a:hover { color: #b8962e; }
+        .footer-link { margin-top: 25px; font-size: 1em; color: #94a3b8; }
+        .footer-link a { color: #fbbf24; text-decoration: none; font-weight: 700; border-bottom: 1px solid #fbbf24; padding-bottom: 2px;}
+        .footer-link a:hover { color: #f59e0b; }
 
-        /* 민수님이 수정하신 초록색 밑줄 반영 */
+        /* 민수님이 수정하신 초록색 밑줄 반영 (다크 배경에 맞춰 밝은 민트색으로 조정) */
         .highlight { 
             text-decoration: underline; 
-            text-decoration-color: #2ecc71; 
+            text-decoration-color: #34d399; 
             text-decoration-thickness: 3px; 
             text-underline-offset: 4px; 
             font-weight: bold; 
+            color: #ffffff;
         }
 
         /* [결함 1 수정] Tab 키로 이동 시 초점(Focus) 테두리 표시 */
         a:focus {
-            outline: 3px solid #2980b9;
-            outline-offset: 2px;
+            outline: 3px solid #fbbf24;
+            outline-offset: 3px;
             border-radius: 3px;
         }
         
