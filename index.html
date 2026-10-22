@@ -5,75 +5,136 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>이민수 소개</title>
     <style>
+        /* 가로 넘침 방지 및 기본 설정 */
+        * { box-sizing: border-box; }
         body {
             font-family: 'Malgun Gothic', sans-serif;
-            line-height: 1.6;
-            max-width: 700px;
-            margin: 40px auto;
-            padding: 0 20px;
+            line-height: 1.5;
+            margin: 0;
+            padding: 20px;
             color: #333;
+            background-color: #f4f7f6; 
+            display: flex;
+            justify-content: center;
         }
-        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
-        h2 { color: #2980b9; margin-top: 40px; border-left: 5px solid #3498db; padding-left: 10px; }
-        .purpose { color: #666; font-size: 0.95em; margin-bottom: 30px; background-color: #f8f9fa; padding: 15px; border-radius: 5px; }
+        
+        /* 1920 해상도에서 중앙 정렬 및 과도한 여백 방지 */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        h1 { color: #2c3e50; margin: 0 0 15px 0; font-size: 2em; border-bottom: 2px solid #3498db; padding-bottom: 10px; display: inline-block;}
+        .purpose { 
+            color: #666; 
+            font-size: 1.05em; 
+            background-color: #ffffff; 
+            padding: 10px 20px; 
+            border-radius: 20px; 
+            display: inline-block;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
         
         /* 민수님이 수정하신 초록색 밑줄 반영 */
         .highlight { text-decoration: underline; text-decoration-color: #2ecc71; text-decoration-thickness: 3px; text-underline-offset: 4px; font-weight: bold; }
         
-        .card { background: #ffffff; border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .card h3 { color: #e67e22; margin-top: 0; }
-        .label { font-weight: bold; color: #2980b9; }
-        ul { padding-left: 20px; }
-        li { margin-bottom: 8px; }
-        a { color: #3498db; text-decoration: none; }
-        a:hover { text-decoration: underline; }
+        /* 화면이 넓으면 2단, 좁으면 1단으로 자동 변경 */
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .card { 
+            background: #ffffff; 
+            border: 1px solid #e0e0e0; 
+            padding: 20px; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            height: 100%;
+        }
+        .card h3 { color: #e67e22; margin-top: 0; margin-bottom: 15px; font-size: 1.2em;}
+        .card p { margin: 10px 0; font-size: 0.95em; }
+        .label { font-weight: bold; color: #2980b9; margin-right: 5px; }
+        
+        /* 취향 3 카드는 가로로 꽉 차게 배치 */
+        .card-full {
+            grid-column: 1 / -1;
+        }
+
+        /* 근거 링크 영역 압축 */
+        .evidence-box {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .evidence-box h2 { margin-top: 0; color: #2980b9; font-size: 1.3em; border: none; padding: 0;}
+        .evidence-links { list-style: none; padding: 0; margin: 15px 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+        .evidence-links li { background: #eaf2f8; padding: 8px 12px; border-radius: 5px; font-size: 0.95em; }
+        .evidence-links a { color: #2980b9; text-decoration: none; font-weight: bold; }
+        .evidence-links a:hover { text-decoration: underline; }
+        
+        .footer-link { margin-top: 15px; font-size: 0.95em; }
+        .footer-link a { color: #3498db; text-decoration: none; font-weight: bold; }
     </style>
 </head>
 <body>
-    <!-- 인사말에 손바닥 이모지 추가 -->
-    <h1>안녕하세요👋, 이민수입니다.</h1>
-    
-    <!-- 카드 1: 대상과 목적 -->
-    <div class="purpose">
-        </strong> 저의 강점과 취향을 소개합니다!
+    <div class="container">
+        <!-- 인사말 및 목적 -->
+        <header>
+            <h1>안녕하세요👋, 이민수입니다.</h1>
+            <div class="purpose">
+                <strong>[목적]</strong> 저의 강점과 취향을 소개합니다!
+            </div>
+        </header>
+
+        <!-- 강점 및 취향 (첫 화면 노출을 위해 2단 배치) -->
+        <div class="content-wrapper">
+            <!-- 강점 1 -->
+            <div class="card">
+                <h3>1. 🤝 소통을 통한 갈등 해결 (강점)</h3>
+                <p><span class="label">[상황]</span> 군 복무 시절, 민·관·군 테러 대응 통합훈련의 군 책임자로 참여했습니다. 하지만 초기 준비 과정에서 기관별 안전 문제와 책임 소재가 불분명해 훈련 준비가 진전되지 않는 갈등 상황이 발생했습니다.</p>
+                <p><span class="label">[행동]</span> 원활한 소통을 위해 기관별 담당자들이 모이는 회의를 직접 기획했습니다. 회의에서 각 기관의 애로사항을 경청하고 종합하여, 기관별 역할과 임무를 명확히 재정립했습니다.</p>
+                <p><span class="label">[결과]</span> 소통🗣️을 통해 갈등을 해결하여 <span class="highlight">단 한 건의 안전사고 없이 훈련을 성공적으로 마쳤습니다.</span> 이러한 공로를 인정받아 <strong>부산 남구청장 표창</strong>을 수상했습니다.</p>
+            </div>
+
+            <!-- 강점 2 -->
+            <div class="card">
+                <h3>2. 🔍 꼼꼼한 분석을 통한 문제 해결력  (강점)</h3>
+                <p><span class="label">[상황]</span> 함포 사격훈련 책임장교🎯로 부임했을 당시, 해당 함정의 사격 명중률이 20%에 불과해 동형 함정 중 하위권에 머물러 있었습니다.</p>
+                <p><span class="label">[행동]</span> 5년 치 사격 데이터📊를 직접 분석하여 사격 거리와 장비 작동 시간의 오차를 확인해 표준화했습니다. 또한, 사격 관측용 레이더 하나에만 의존하던 방식을 개선하여 항해 레이더를 추가로 활용해 탄착점을 교차 확인하고, 명중 위치를 정밀하게 조정했습니다.</p>
+                <p><span class="label">[결과]</span> 그 결과 명중률을 <span class="highlight">20%에서 70%까지 끌어올렸으며, 동형 함정 중 1위🏆</span>를 달성하는 성과를 거두었습니다.</p>
+            </div>
+
+            <!-- 취향 3 (넓게 배치) -->
+            <div class="card card-full">
+                <h3>3. 🏃‍♂️ 운동과 반려견과 함께하는 스트레스 극복 (취향)</h3>
+                <p><span class="label">[상황]</span> 삶을 살아가거나 일을 하고 사람을 만나다 보면 스트레스나 상처를 받는 일이 많습니다. 저는 스트레스나 상처를 받는 것은 당연하다고 생각하며, 이것을 어떻게 극복할 것인지가 중요하다고 생각합니다.</p>
+                <p><span class="label">[행동]</span> 그래서 좋아하는 것을 찾기로 했습니다. 초등학생 때부터 ⚽ <strong>축구</strong>를 해서 땀을 흘리며 스트레스가 풀린다는 것을 느꼈고 지금도 축구와 풋살을 즐기고 있습니다. 새로운 운동도 배우고 싶어 🎾 <strong>테니스</strong>도 배워 현재까지 치고 있습니다. 또한 🐶 <strong>강아지</strong>를 너무 좋아해 현재도 반려견과 함께하며 행복한 시간을 보내고 있습니다.</p>
+                <p><span class="label">[결과]</span> 내가 좋아하는 운동(축구, 테니스)을 하고 사랑하는 강아지와 함께하며 스트레스를 해소하고, <span class="highlight">일상의 활력을 충전하여 더 나은 내일을 준비할 수 있게 되었습니다.</span></p>
+            </div>
+        </div>
+
+        <!-- 근거 링크 (첫 화면 하단에 함께 보이도록 압축) -->
+        <div class="evidence-box">
+            <h2>🔗 공개 가능한 근거 및 링크</h2>
+            <p>본인이 군 책임자로 참여했던 <strong>2025년 부산 남구 민·관·군 통합훈련(충무훈련)</strong>의 실제 개최 사실을 확인할 수 있는 공개 보도 자료입니다.</p>
+            <ul class="evidence-links">
+                <li><a href="http://www.iminju.net/news/articleView.html?idxno=126101" target="_blank">📰 민주신문 기사 보기 (2025.04.23)</a></li>
+                <li><a href="https://www.busan.com/view/busan/view.php?code=2025070314581271765" target="_blank">📰 부산일보 기사 보기 (2025.07.02)</a></li>
+            </ul>
+            <div class="footer-link">
+                제가 직접 만들고 배포한 결과물: <a href="https://Lee-Minsoo6944.github.io" target="_blank">나의 소개 페이지 보기 (클릭)</a>
+            </div>
+        </div>
     </div>
-
-    <!-- 카드 2: 강점과 취향 (3가지) -->
-    <h2>💡 나의 강점과 취향</h2>
-    
-    <!-- 강점 1 (악수 이모지 추가) -->
-    <div class="card">
-        <h3>1. 🤝 소통을 통한 갈등 해결 (강점)</h3>
-        <p><span class="label">[상황]</span> 군 복무 시절, 민·관·군 테러 대응 통합훈련의 군 책임자로 참여했습니다. 하지만 초기 준비 과정에서 기관별 안전 문제와 책임 소재가 불분명해 훈련 준비가 진전되지 않는 갈등 상황이 발생했습니다.</p>
-        <p><span class="label">[행동]</span> 원활한 소통을 위해 기관별 담당자들이 모이는 회의를 직접 기획했습니다. 회의에서 각 기관의 애로사항을 경청하고 종합하여, 기관별 역할과 임무를 명확히 재정립했습니다.</p>
-        <p><span class="label">[결과]</span> 소통🗣️을 통해 갈등을 해결하여 <span class="highlight">단 한 건의 안전사고 없이 훈련을 성공적으로 마쳤습니다.</span> 이러한 공로를 인정받아 <strong>부산 남구청장 표창</strong>을 수상했습니다.</p>
-    </div>
-
-    <!-- 강점 2 (돋보기 이모지 추가) -->
-    <div class="card">
-        <h3>2. 🔍 꼼꼼한 분석을 통한 문제 해결력  (강점)</h3>
-        <p><span class="label">[상황]</span> 함포 사격훈련 책임장교🎯로 부임했을 당시, 해당 함정의 사격 명중률이 20%에 불과해 동형 함정 중 하위권에 머물러 있었습니다.</p>
-        <p><span class="label">[행동]</span> 5년 치 사격 데이터📊를 직접 분석하여 사격 거리와 장비 작동 시간의 오차를 확인해 표준화했습니다. 또한, 사격 관측용 레이더 하나에만 의존하던 방식을 개선하여 항해 레이더를 추가로 활용해 탄착점을 교차 확인하고, 명중 위치를 정밀하게 조정했습니다.</p>
-        <p><span class="label">[결과]</span> 그 결과 명중률을 <span class="highlight">20%에서 70%까지 끌어올렸으며, 동형 함정 중 1위🏆</span>를 달성하는 성과를 거두었습니다.</p>
-    </div>
-
-    <!-- 취향 3 (강아지 얼굴 이모지로 변경) -->
-    <div class="card">
-        <h3>3. 🏃‍♂️ 운동과 반려견과 함께하는 스트레스 극복 (취향)</h3>
-        <p><span class="label">[상황]</span> 삶을 살아가거나 일을 하고 사람을 만나다 보면 스트레스나 상처를 받는 일이 많습니다. 저는 스트레스나 상처를 받는 것은 당연하다고 생각하며, 이것을 어떻게 극복할 것인지가 중요하다고 생각합니다.</p>
-        <p><span class="label">[행동]</span> 그래서 좋아하는 것을 찾기로 했습니다. 초등학생 때부터 ⚽ <strong>축구</strong>를 해서 땀을 흘리며 스트레스가 풀린다는 것을 느꼈고 지금도 축구와 풋살을 즐기고 있습니다. 새로운 운동도 배우고 싶어 🎾 <strong>테니스</strong>도 배워 현재까지 치고 있습니다. 또한 🐶 <strong>강아지</strong>를 너무 좋아해 현재도 반려견과 함께하며 행복한 시간을 보내고 있습니다.</p>
-        <p><span class="label">[결과]</span> 내가 좋아하는 운동(축구, 테니스)을 하고 사랑하는 강아지와 함께하며 스트레스를 해소하고, <span class="highlight">일상의 활력을 충전하여 더 나은 내일을 준비할 수 있게 되었습니다.</span></p>
-    </div>
-
-    <!-- 근거 링크 -->
-    <h2>🔗 공개 가능한 근거 및 링크</h2>
-    <p>본인이 군 책임자로 참여했던 <strong>2025년 부산 남구 민·관·군 통합훈련(충무훈련)</strong>의 실제 개최 사실을 확인할 수 있는 공개 보도 자료입니다.</p>
-    <ul>
-        <li><a href="http://www.iminju.net/news/articleView.html?idxno=126101" target="_blank">민주신문 - 부산 남구, 드론 위협 대비 훈련 통해 국가 비상대비 태세 강화 (2025.04.23)</a></li>
-        <li><a href="https://www.busan.com/view/busan/view.php?code=2025070314581271765" target="_blank">부산일보 - 부산 남구, 2025 충무훈련 유공 부산광역시장 표창 수상 (2025.07.02)</a></li>
-    </ul>
-    <br>
-    <p>제가 직접 만들고 배포한 결과물: <a href="https://Lee-Minsoo6944.github.io" target="_blank">나의 소개 페이지 보기 (클릭)</a></p>
-
 </body>
 </html>
