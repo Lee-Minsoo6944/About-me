@@ -10,216 +10,352 @@
         body {
             font-family: 'Pretendard', 'Malgun Gothic', sans-serif;
             line-height: 1.6;
-            color: #e2e8f0; /* 기본 글자색을 밝은 회색으로 변경 */
-            background-color: #0f172a; /* 딥 네이비 배경 */
+            color: #e2e8f0;
+            background-color: #0f172a;
             display: flex;
             justify-content: center;
-            padding: 30px 15px;
+            padding: 20px 15px;
         }
-        
-        /* 팜플렛 용지 느낌의 컨테이너 (살짝 밝은 네이비) */
+
+        /* 팜플렛 용지 느낌의 컨테이너 */
         .container {
             width: 100%;
             max-width: 1100px;
-            background-color: #1e293b; 
-            padding: 40px;
+            background-color: #1e293b;
+            padding: 28px 32px;
             border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* 그림자 진하게 */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             border: 1px solid #334155;
         }
 
-        /* 헤더 (인사말 및 목적) */
+        /* 헤더 */
         header {
             text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 30px;
+            margin-bottom: 22px;
+            padding-bottom: 18px;
             border-bottom: 1px solid #334155;
         }
-        h1 { 
-            color: #ffffff; /* 흰색으로 변경 */
-            font-size: 2.4em; 
+        h1 {
+            color: #ffffff;
+            font-size: 2em;
             font-weight: 800;
-            margin-bottom: 15px; 
+            margin-bottom: 10px;
             letter-spacing: -1px;
         }
-        .purpose { 
-            color: #cbd5e1; 
-            font-size: 1.1em; 
-            background-color: #0f172a; 
-            padding: 10px 25px; 
-            border-radius: 30px; 
+        .purpose {
+            color: #cbd5e1;
+            font-size: 1.05em;
+            background-color: #0f172a;
+            padding: 10px 25px;
+            border-radius: 30px;
             display: inline-block;
             border: 1px solid #334155;
         }
-        .purpose strong { color: #fbbf24; } /* 골드 포인트 */
+        .purpose strong { color: #fbbf24; }
+
+        /* 공개 정보 박스 */
+        .profile-box {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px 20px;
+        }
+        .profile-item {
+            background: #0f172a;
+            border: 1px solid #334155;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.95em;
+            color: #cbd5e1;
+        }
+        .profile-item strong { color: #fbbf24; }
+
+        /* 첫 화면 근거 미리보기 */
+        .quick-evidence {
+            margin-top: 12px;
+            font-size: 0.92em;
+            color: #94a3b8;
+        }
+        .quick-evidence a {
+            color: #fbbf24;
+            text-decoration: none;
+            border-bottom: 1px solid #fbbf24;
+        }
+        .quick-evidence a:hover { color: #f59e0b; }
 
         /* 2단 그리드 레이아웃 */
         .content-wrapper {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 25px;
-            margin-bottom: 30px;
+            gap: 18px;
+            margin-bottom: 20px;
         }
 
         /* 카드 디자인 */
-        .card { 
-            background: #1e293b; 
-            border: 1px solid #334155; 
-            padding: 30px; 
-            border-radius: 8px; 
+        .card {
+            background: #1e293b;
+            border: 1px solid #334155;
+            padding: 20px;
+            border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             height: 100%;
             transition: transform 0.2s ease, border-color 0.2s;
         }
         .card:hover {
             transform: translateY(-3px);
-            border-color: #fbbf24; /* 호버 시 골드 테두리 */
+            border-color: #fbbf24;
         }
-        
-        /* 카드 제목 (흰색 + 골드 밑줄) */
-        .card h2 { 
-            color: #ffffff; 
-            font-size: 1.3em; 
-            margin-bottom: 20px; 
+        .card h2 {
+            color: #ffffff;
+            font-size: 1.15em;
+            margin-bottom: 12px;
             padding-bottom: 10px;
             border-bottom: 2px solid #fbbf24;
             display: inline-block;
         }
-        
-        .card p { margin: 12px 0; font-size: 1em; color: #cbd5e1; } /* 본문 글자색 밝게 */
-        
-        /* [상황][행동][결과] 뱃지 스타일 */
-        .label { 
-            font-weight: 700; 
-            color: #0f172a; /* 어두운 글자색 */
-            background-color: #fbbf24; /* 골드 배경 */
-            padding: 3px 8px; 
-            border-radius: 4px; 
+        .card p { margin: 8px 0; font-size: 0.95em; color: #cbd5e1; line-height: 1.5; }
+
+        /* [상황][행동][결과] 뱃지 */
+        .label {
+            font-weight: 700;
+            color: #0f172a;
+            background-color: #fbbf24;
+            padding: 3px 8px;
+            border-radius: 4px;
             font-size: 0.85em;
-            margin-right: 8px; 
+            margin-right: 8px;
             vertical-align: middle;
         }
-        
+
         /* 취향 카드는 가로로 꽉 차게 */
         .card-full { grid-column: 1 / -1; }
+
+        /* 카드 내 근거 표시 */
+        .card-evidence {
+            margin-top: 15px;
+            padding-top: 12px;
+            border-top: 1px dashed #334155;
+            font-size: 0.9em;
+            color: #94a3b8;
+        }
+        .card-evidence a {
+            color: #fbbf24;
+            text-decoration: none;
+            border-bottom: 1px solid #fbbf24;
+        }
+        .card-evidence a:hover { color: #f59e0b; }
+        .evidence-label {
+            background-color: #34d399 !important;
+            color: #0f172a !important;
+        }
 
         /* 근거 링크 영역 */
         .evidence-box {
             background: #0f172a;
             border: 1px solid #334155;
-            padding: 30px;
+            padding: 18px 20px;
             border-radius: 8px;
             text-align: center;
         }
-        .evidence-box h2 { 
-            color: #ffffff; 
-            font-size: 1.3em; 
-            margin-bottom: 15px; 
+        .evidence-box h2 {
+            color: #ffffff;
+            font-size: 1.1em;
+            margin-bottom: 8px;
         }
-        .evidence-box p { color: #cbd5e1; }
-        .evidence-links { 
-            list-style: none; 
-            padding: 0; 
-            margin: 20px 0; 
-            display: flex; 
-            flex-wrap: wrap; 
-            justify-content: center; 
-            gap: 15px; 
+        .evidence-box p { color: #cbd5e1; font-size: 0.9em; }
+        .evidence-links {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
         }
-        .evidence-links li { 
-            background: #1e293b; 
+        .evidence-links li {
+            background: #1e293b;
             border: 1px solid #fbbf24;
-            padding: 10px 15px; 
-            border-radius: 5px; 
-            font-size: 0.95em; 
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 0.88em;
             transition: background 0.2s;
         }
-        .evidence-links li:hover {
-            background: #334155;
-        }
+        .evidence-links li:hover { background: #334155; }
         .evidence-links a { color: #ffffff; text-decoration: none; font-weight: 600; }
-        
-        .footer-link { margin-top: 25px; font-size: 1em; color: #94a3b8; }
-        .footer-link a { color: #fbbf24; text-decoration: none; font-weight: 700; border-bottom: 1px solid #fbbf24; padding-bottom: 2px;}
+
+        .footer-link { margin-top: 14px; font-size: 0.9em; color: #94a3b8; }
+        .footer-link a {
+            color: #fbbf24;
+            text-decoration: none;
+            font-weight: 700;
+            border-bottom: 1px solid #fbbf24;
+            padding-bottom: 2px;
+        }
         .footer-link a:hover { color: #f59e0b; }
 
-        /* 민수님이 수정하신 초록색 밑줄 반영 (다크 배경에 맞춰 밝은 민트색으로 조정) */
-        .highlight { 
-            text-decoration: underline; 
-            text-decoration-color: #34d399; 
-            text-decoration-thickness: 3px; 
-            text-underline-offset: 4px; 
-            font-weight: bold; 
+        /* 공개 범위 안내 박스 */
+        .scope-box {
+            background: #0f172a;
+            border: 1px solid #334155;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 25px;
+        }
+        .scope-box h2 {
+            color: #ffffff;
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .scope-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+        .scope-grid h3 {
+            color: #fbbf24;
+            font-size: 1.05em;
+            margin-bottom: 10px;
+        }
+        .scope-grid ul { list-style: none; padding-left: 0; }
+        .scope-grid li {
+            color: #cbd5e1;
+            padding: 5px 0 5px 18px;
+            position: relative;
+            font-size: 0.95em;
+        }
+        .scope-grid li::before {
+            content: "•";
+            color: #34d399;
+            position: absolute;
+            left: 0;
+        }
+
+        /* 밑줄 하이라이트 */
+        .highlight {
+            text-decoration: underline;
+            text-decoration-color: #34d399;
+            text-decoration-thickness: 3px;
+            text-underline-offset: 4px;
+            font-weight: bold;
             color: #ffffff;
         }
 
-        /* [결함 1 수정] Tab 키로 이동 시 초점(Focus) 테두리 표시 */
+        /* Tab 키 초점 테두리 */
         a:focus {
             outline: 3px solid #fbbf24;
             outline-offset: 3px;
             border-radius: 3px;
         }
-        
+
         /* 모바일 대응 */
         @media (max-width: 768px) {
             .container { padding: 20px; }
             h1 { font-size: 1.8em; }
             .content-wrapper { grid-template-columns: 1fr; }
             .evidence-links { flex-direction: column; }
+            .scope-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- 인사말 및 목적 -->
+        <!-- 인사말 / 대상과 목적 / 공개 정보 / 근거 미리보기 -->
         <header>
             <h1>안녕하세요👋, 이민수입니다.</h1>
-            <div class="purpose">
-                <!-- [결함 2 수정] 닫히는 태그만 있던 것을 여는 태그 <strong>와 함께 수정 -->
-                </strong> 저의 강점과 취향을 소개합니다!
+
+            <p class="purpose">
+                <strong>저를 궁금해하거나 관심 있는 분들</strong>께 <strong>제가 어떤 사람인지</strong> 소개하기 위해 만든 페이지입니다.
+            </p>
+
+            <div class="profile-box">
+                <span class="profile-item">👤 이름: <strong>이민수</strong></span>
+                <span class="profile-item">🎂 생년월일: <strong>1995.10.13</strong></span>
+                <span class="profile-item">✉️ 이메일: <strong>alstn6944@naver.com</strong></span>
             </div>
+
+            <p class="quick-evidence">
+                📰 근거:
+                <a href="http://www.iminju.net/news/articleView.html?idxno=126101" target="_blank" rel="noopener">민주신문</a> ·
+                <a href="https://www.busan.com/view/busan/view.php?code=2025070314581271765" target="_blank" rel="noopener">부산일보</a>
+            </p>
         </header>
 
-        <!-- 강점 및 취향 (2단 배치) -->
+        <!-- 강점 및 취향 -->
         <div class="content-wrapper">
             <!-- 강점 1 -->
             <div class="card">
-                <!-- [결함 2 수정] h3에서 h2로 변경하여 제목 단계(h1 -> h2) 준수 -->
                 <h2>1. 🤝 소통을 통한 갈등 해결 (강점)</h2>
                 <p><span class="label">[상황]</span> 군 복무 시절, 민·관·군 테러 대응 통합훈련의 군 책임자로 참여했습니다. 하지만 초기 준비 과정에서 기관별 안전 문제와 책임 소재가 불분명해 훈련 준비가 진전되지 않는 갈등 상황이 발생했습니다.</p>
                 <p><span class="label">[행동]</span> 원활한 소통을 위해 기관별 담당자들이 모이는 회의를 직접 기획했습니다. 회의에서 각 기관의 애로사항을 경청하고 종합하여, 기관별 역할과 임무를 명확히 재정립했습니다.</p>
                 <p><span class="label">[결과]</span> 소통🗣️을 통해 갈등을 해결하여 <span class="highlight">단 한 건의 안전사고 없이 훈련을 성공적으로 마쳤습니다.</span> 이러한 공로를 인정받아 <strong>부산 남구청장 표창</strong>을 수상했습니다.</p>
+                <p class="card-evidence">
+                    <span class="label evidence-label">[근거]</span>
+                    훈련 실제 개최 사실 확인:
+                    <a href="http://www.iminju.net/news/articleView.html?idxno=126101" target="_blank" rel="noopener">📰 민주신문 (2025.04.23)</a> ·
+                    <a href="https://www.busan.com/view/busan/view.php?code=2025070314581271765" target="_blank" rel="noopener">📰 부산일보 (2025.07.02)</a>
+                </p>
             </div>
 
             <!-- 강점 2 -->
             <div class="card">
-                <!-- [결함 2 수정] h3에서 h2로 변경 -->
                 <h2>2. 🔍 꼼꼼한 분석을 통한 문제 해결력 (강점)</h2>
                 <p><span class="label">[상황]</span> 함포 사격훈련 책임장교🎯로 부임했을 당시, 해당 함정의 사격 명중률이 20%에 불과해 동형 함정 중 하위권에 머물러 있었습니다.</p>
                 <p><span class="label">[행동]</span> 5년 치 사격 데이터📊를 직접 분석하여 사격 거리와 장비 작동 시간의 오차를 확인해 표준화했습니다. 또한, 사격 관측용 레이더 하나에만 의존하던 방식을 개선하여 항해 레이더를 추가로 활용해 탄착점을 교차 확인하고, 명중 위치를 정밀하게 조정했습니다.</p>
                 <p><span class="label">[결과]</span> 그 결과 명중률을 <span class="highlight">20%에서 70%까지 끌어올렸으며, 동형 함정 중 1위🏆</span>를 달성하는 성과를 거두었습니다.</p>
+                <p class="card-evidence">
+                    <span class="label evidence-label">[근거]</span>
+                    사격 데이터 5년치를 분석해 작성한 표준화 기준표와, 명중률 20%→70% 개선 기록(함내 훈련일지)으로 확인 가능합니다.
+                </p>
             </div>
 
-            <!-- 취향 3 (넓게 배치) -->
+            <!-- 취향 3 -->
             <div class="card card-full">
-                <!-- [결함 2 수정] h3에서 h2로 변경 -->
                 <h2>3. 🏃‍♂️ 운동과 반려견과 함께하는 스트레스 극복 (취향)</h2>
                 <p><span class="label">[상황]</span> 삶을 살아가거나 일을 하고 사람을 만나다 보면 스트레스나 상처를 받는 일이 많습니다. 저는 스트레스나 상처를 받는 것은 당연하다고 생각하며, 이것을 어떻게 극복할 것인지가 중요하다고 생각합니다.</p>
                 <p><span class="label">[행동]</span> 그래서 좋아하는 것을 찾기로 했습니다. 초등학생 때부터 ⚽ <strong>축구</strong>를 해서 땀을 흘리며 스트레스가 풀린다는 것을 느꼈고 지금도 축구와 풋살을 즐기고 있습니다. 새로운 운동도 배우고 싶어 🎾 <strong>테니스</strong>도 배워 현재까지 치고 있습니다. 또한 🐶 <strong>강아지</strong>를 너무 좋아해 현재도 반려견과 함께하며 행복한 시간을 보내고 있습니다.</p>
                 <p><span class="label">[결과]</span> 내가 좋아하는 운동(축구, 테니스)을 하고 사랑하는 강아지와 함께하며 스트레스를 해소하고, <span class="highlight">일상의 활력을 충전⚡하여 더 나은 내일을 준비할 수 있게 되었습니다.</span></p>
+                <p class="card-evidence">
+                    <span class="label evidence-label">[근거]</span>
+                    현재도 주 1~2회 풋살과 테니스를 즐기고 있으며, 반려견과 함께하는 일상 사진으로 확인 가능합니다.
+                </p>
             </div>
         </div>
 
-        <!-- 근거 링크 -->
+        <!-- 근거 링크 모음 -->
         <div class="evidence-box">
             <h2>🔗 공개 가능한 근거 및 링크</h2>
             <p>본인이 군 책임자로 참여했던 <strong>2025년 부산 남구 민·관·군 통합훈련(충무훈련)</strong>의 실제 개최 사실을 확인할 수 있는 공개 보도 자료입니다.</p>
             <ul class="evidence-links">
-                <li><a href="http://www.iminju.net/news/articleView.html?idxno=126101" target="_blank">📰 민주신문 기사 보기 (2025.04.23)</a></li>
-                <li><a href="https://www.busan.com/view/busan/view.php?code=2025070314581271765" target="_blank">📰 부산일보 기사 보기 (2025.07.02)</a></li>
+                <li><a href="http://www.iminju.net/news/articleView.html?idxno=126101" target="_blank" rel="noopener">📰 민주신문 기사 보기 (2025.04.23)</a></li>
+                <li><a href="https://www.busan.com/view/busan/view.php?code=2025070314581271765" target="_blank" rel="noopener">📰 부산일보 기사 보기 (2025.07.02)</a></li>
             </ul>
             <div class="footer-link">
-                제가 직접 만들고 배포한 결과물: <a href="https://Lee-Minsoo6944.github.io" target="_blank">나의 소개 페이지 보기 (클릭)</a>
+                제가 직접 만들고 배포한 결과물: <a href="https://Lee-Minsoo6944.github.io" target="_blank" rel="noopener">나의 소개 페이지 보기 (클릭)</a>
+            </div>
+        </div>
+
+        <!-- 공개 범위 안내 -->
+        <div class="scope-box">
+            <h2>📢 공개 범위 안내</h2>
+            <div class="scope-grid">
+                <div>
+                    <h3>✅ 공개하는 정보</h3>
+                    <ul>
+                        <li>이름 (이민수)</li>
+                        <li>나이 (1995.10.13 생)</li>
+                        <li>이메일 (alstn6944@naver.com)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>🔒 공개하지 않는 정보</h3>
+                    <ul>
+                        <li>전화번호</li>
+                        <li>주민등록번호</li>
+                        <li>나만의 비밀</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
