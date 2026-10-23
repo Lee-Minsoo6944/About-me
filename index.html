@@ -86,6 +86,14 @@
             min-height: 0;
         }
 
+        /* 탭 그룹 섹션 제목 (h2) */
+        .tabs-heading {
+            color: #ffffff;
+            font-size: 1.1em;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
         /* 탭 목록 */
         .tab-list {
             display: flex;
@@ -110,7 +118,6 @@
         }
         .tab-button:hover { background: #334155; color: #ffffff; }
         .tab-button[aria-selected="true"] {
-            /* 선택된 탭을 패널과 같은 밝은 색으로 통일 */
             background: #475569;
             color: #fbbf24;
             border-color: #fbbf24;
@@ -123,7 +130,7 @@
 
         /* 탭 패널: 전체 배경보다 밝게 */
         .tab-panel {
-            background: #475569;   /* 전체(#1e293b)보다 밝은 톤 */
+            background: #475569;
             border: 1px solid #64748b;
             border-radius: 0 8px 8px 8px;
             padding: 22px;
@@ -132,7 +139,8 @@
             overflow: auto;
         }
         .tab-panel[hidden] { display: none; }
-        .tab-panel h2 {
+        /* [결함 1 수정] 패널 내부 제목을 h3로 내려 h1→h2→h3 단계 준수 */
+        .tab-panel h3 {
             color: #ffffff;
             font-size: 1.15em;
             margin-bottom: 14px;
@@ -204,7 +212,7 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            justify-content: space-between; /* 항목 사이 간격 균등 확대 */
+            justify-content: space-between;
         }
         .timeline-list::before {
             content: "";
@@ -217,7 +225,6 @@
         }
         .timeline-item {
             position: relative;
-            /* 간격을 넓혀 배너 하단 빈 공간 최소화 */
             margin-bottom: 32px;
             cursor: pointer;
             border-radius: 6px;
@@ -249,9 +256,10 @@
             line-height: 1.35;
         }
         .timeline-item.active .timeline-title { color: #fbbf24; }
+        /* [결함 2 수정] #94a3b8 → #a8b3c4 로 밝혀 대비 여유 확보 */
         .timeline-desc {
             font-size: 0.8em;
-            color: #94a3b8;
+            color: #a8b3c4;
             line-height: 1.45;
         }
 
@@ -306,7 +314,8 @@
         .evidence-links li:hover { background: #334155; }
         .evidence-links a { color: #ffffff; text-decoration: none; font-weight: 600; }
 
-        .footer-link { margin-top: 14px; font-size: 0.9em; color: #94a3b8; }
+        /* [결함 2 수정] footer 글자색 #94a3b8 → #a8b3c4 */
+        .footer-link { margin-top: 14px; font-size: 0.9em; color: #a8b3c4; }
         .footer-link a {
             color: #fbbf24;
             text-decoration: none;
@@ -390,6 +399,8 @@
         <div class="main-layout">
             <!-- 왼쪽: 탭 콘텐츠 -->
             <div class="tabs">
+                <!-- [결함 1 수정] h1 다음 h2 섹션 제목 추가 -->
+                <h2 class="tabs-heading">나의 강점과 관심사</h2>
                 <div class="tab-list" role="tablist" aria-label="강점과 관심사 탭">
                     <button class="tab-button" id="tab-1" role="tab"
                             aria-selected="true" aria-controls="panel-1" tabindex="0">
@@ -407,21 +418,21 @@
 
                 <!-- 패널 1 -->
                 <div class="tab-panel" id="panel-1" role="tabpanel" aria-labelledby="tab-1">
-                    <h2>1. 🤝 소통을 통한 갈등 해결 (강점)</h2>
+                    <h3>1. 🤝 소통을 통한 갈등 해결 (강점)</h3>
                     <p><span class="label">[상황]</span> 군 복무 시절, 민·관·군 테러 대응 통합훈련의 군 책임자로 참여했습니다. 하지만 초기 준비 과정에서 기관별 안전 문제와 책임 소재가 불분명해 훈련 준비가 진전되지 않는 갈등 상황이 발생했습니다.</p>
                     <p><span class="label">[행동]</span> 원활한 소통을 위해 기관별 담당자들이 모이는 회의를 직접 기획했습니다. 회의에서 각 기관의 애로사항을 경청하고 종합하여, 기관별 역할과 임무를 명확히 재정립했습니다.</p>
                     <p><span class="label">[결과]</span> 소통🗣️을 통해 갈등을 해결하여 <span class="highlight">단 한 건의 안전사고 없이 훈련을 성공적으로 마쳤습니다.</span> 이러한 공로를 인정받아 <strong>부산 남구청장 표창</strong>을 수상했습니다.</p>
                     <p class="card-evidence">
                         <span class="label evidence-label">[근거]</span>
                         훈련 실제 개최 사실 확인:
-                        <a href="http://www.iminju.net/news/articleView.html?idxno=126101" target="_blank" rel="noopener">📰 민주신문 (2025.04.23)</a> ·
+                        <a href="https://www.iminju.net/news/articleView.html?idxno=126101" target="_blank" rel="noopener">📰 민주신문 (2025.04.23)</a> ·
                         <a href="https://www.busan.com/view/busan/view.php?code=2025070314581271765" target="_blank" rel="noopener">📰 부산일보 (2025.07.02)</a>
                     </p>
                 </div>
 
                 <!-- 패널 2 -->
                 <div class="tab-panel" id="panel-2" role="tabpanel" aria-labelledby="tab-2" hidden>
-                    <h2>2. 🔍 꼼꼼한 분석을 통한 문제 해결력 (강점)</h2>
+                    <h3>2. 🔍 꼼꼼한 분석을 통한 문제 해결력 (강점)</h3>
                     <p><span class="label">[상황]</span> 함포 사격훈련 책임장교🎯로 부임했을 당시, 해당 함정의 사격 명중률이 20%에 불과해 동형 함정 중 하위권에 머물러 있었습니다.</p>
                     <p><span class="label">[행동]</span> 5년 치 사격 데이터📊를 직접 분석하여 사격 거리와 장비 작동 시간의 오차를 확인해 표준화했습니다. 또한, 사격 관측용 레이더 하나에만 의존하던 방식을 개선하여 항해 레이더를 추가로 활용해 탄착점을 교차 확인하고, 명중 위치를 정밀하게 조정했습니다.</p>
                     <p><span class="label">[결과]</span> 그 결과 명중률을 <span class="highlight">20%에서 70%까지 끌어올렸으며, 동형 함정 중 1위🏆</span>를 달성하는 성과를 거두었습니다.</p>
@@ -433,7 +444,7 @@
 
                 <!-- 패널 3 -->
                 <div class="tab-panel" id="panel-3" role="tabpanel" aria-labelledby="tab-3" hidden>
-                    <h2>3. 🏃‍♂️ 운동과 반려견과 함께하는 스트레스 극복 (관심사)</h2>
+                    <h3>3. 🏃‍♂️ 운동과 반려견과 함께하는 스트레스 극복 (관심사)</h3>
                     <p><span class="label">[상황]</span> 삶을 살아가거나 일을 하고 사람을 만나다 보면 스트레스나 상처를 받는 일이 많습니다. 저는 스트레스나 상처를 받는 것은 당연하다고 생각하며, 이것을 어떻게 극복할 것인지가 중요하다고 생각합니다.</p>
                     <p><span class="label">[행동]</span> 그래서 좋아하는 것을 찾기로 했습니다. 초등학생 때부터 ⚽ <strong>축구</strong>를 해서 땀을 흘리며 스트레스가 풀린다는 것을 느꼈고 지금도 축구와 풋살을 즐기고 있습니다. 새로운 운동도 배우고 싶어 🎾 <strong>테니스</strong>도 배워 현재까지 치고 있습니다. 또한 🐶 <strong>강아지</strong>를 너무 좋아해 현재도 반려견과 함께하며 행복한 시간을 보내고 있습니다.</p>
                     <p><span class="label">[결과]</span> 내가 좋아하는 운동(축구, 테니스)을 하고 사랑하는 강아지와 함께하며 스트레스를 해소하고, <span class="highlight">일상의 활력을 충전⚡하여 더 나은 내일을 준비할 수 있게 되었습니다.</span></p>
@@ -472,7 +483,7 @@
             <h2>🔗 공개 가능한 근거 및 링크</h2>
             <p>본인이 군 책임자로 참여했던 <strong>2025년 부산 남구 민·관·군 통합훈련(충무훈련)</strong>의 실제 개최 사실을 확인할 수 있는 공개 보도 자료입니다.</p>
             <ul class="evidence-links">
-                <li><a href="http://www.iminju.net/news/articleView.html?idxno=126101" target="_blank" rel="noopener">📰 민주신문 기사 보기 (2025.04.23)</a></li>
+                <li><a href="https://www.iminju.net/news/articleView.html?idxno=126101" target="_blank" rel="noopener">📰 민주신문 기사 보기 (2025.04.23)</a></li>
                 <li><a href="https://www.busan.com/view/busan/view.php?code=2025070314581271765" target="_blank" rel="noopener">📰 부산일보 기사 보기 (2025.07.02)</a></li>
             </ul>
             <div class="footer-link">
