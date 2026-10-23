@@ -76,7 +76,7 @@
             grid-template-columns: 1fr 300px;
             gap: 20px;
             margin-bottom: 20px;
-            align-items: stretch; /* 좌우 높이 자동 맞춤 */
+            align-items: stretch;
         }
 
         /* 왼쪽 탭 컬럼 */
@@ -110,25 +110,26 @@
         }
         .tab-button:hover { background: #334155; color: #ffffff; }
         .tab-button[aria-selected="true"] {
-            background: #1e293b;
+            /* 선택된 탭을 패널과 같은 밝은 색으로 통일 */
+            background: #475569;
             color: #fbbf24;
             border-color: #fbbf24;
-            border-bottom-color: #1e293b;
+            border-bottom-color: #475569;
         }
         .tab-button:focus-visible {
             outline: 3px solid #fbbf24;
             outline-offset: 2px;
         }
 
-        /* 탭 패널 */
+        /* 탭 패널: 전체 배경보다 밝게 */
         .tab-panel {
-            background: #1e293b;
-            border: 1px solid #334155;
+            background: #475569;   /* 전체(#1e293b)보다 밝은 톤 */
+            border: 1px solid #64748b;
             border-radius: 0 8px 8px 8px;
             padding: 22px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            flex: 1;            /* 남는 세로 공간 채움 */
-            overflow: auto;     /* 내용 많으면 내부 스크롤 */
+            flex: 1;
+            overflow: auto;
         }
         .tab-panel[hidden] { display: none; }
         .tab-panel h2 {
@@ -139,7 +140,7 @@
             border-bottom: 2px solid #fbbf24;
             display: inline-block;
         }
-        .tab-panel p { margin: 10px 0; font-size: 0.95em; color: #cbd5e1; line-height: 1.55; }
+        .tab-panel p { margin: 10px 0; font-size: 0.95em; color: #e2e8f0; line-height: 1.55; }
 
         /* [상황][행동][결과] 뱃지 */
         .label {
@@ -161,24 +162,24 @@
         .card-evidence {
             margin-top: 16px;
             padding-top: 12px;
-            border-top: 1px dashed #334155;
+            border-top: 1px dashed #94a3b8;
             font-size: 0.9em;
-            color: #94a3b8;
+            color: #cbd5e1;
         }
         .card-evidence a {
-            color: #fbbf24;
+            color: #fde68a;
             text-decoration: none;
-            border-bottom: 1px solid #fbbf24;
+            border-bottom: 1px solid #fde68a;
         }
-        .card-evidence a:hover { color: #f59e0b; }
+        .card-evidence a:hover { color: #fbbf24; }
 
         /* 인스타그램 아이디 */
         .insta-link {
             margin-top: 12px;
             font-size: 0.92em;
-            color: #94a3b8;
+            color: #cbd5e1;
         }
-        .insta-link strong { color: #fbbf24; }
+        .insta-link strong { color: #fde68a; }
 
         /* ── 오른쪽 타임라인 배너 ── */
         .timeline {
@@ -188,7 +189,6 @@
             padding: 18px 16px;
             display: flex;
             flex-direction: column;
-            /* height 지정 안 함 → 그리드가 왼쪽 높이에 맞춰 늘려줌 */
         }
         .timeline h2 {
             color: #fbbf24;
@@ -201,6 +201,10 @@
             list-style: none;
             position: relative;
             padding-left: 22px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* 항목 사이 간격 균등 확대 */
         }
         .timeline-list::before {
             content: "";
@@ -213,7 +217,8 @@
         }
         .timeline-item {
             position: relative;
-            margin-bottom: 18px;
+            /* 간격을 넓혀 배너 하단 빈 공간 최소화 */
+            margin-bottom: 32px;
             cursor: pointer;
             border-radius: 6px;
             transition: background 0.2s;
@@ -354,6 +359,8 @@
             .main-layout { grid-template-columns: 1fr; }
             .timeline { order: -1; }
             .tab-panel { flex: none; overflow: visible; }
+            .timeline-list { justify-content: flex-start; }
+            .timeline-item { margin-bottom: 18px; }
         }
         @media (max-width: 768px) {
             .container { padding: 20px; }
@@ -453,7 +460,7 @@
                         <div class="timeline-desc">5년치 사격 데이터 분석·표준화로 명중률 20% → 70%, 동형 함정 1위</div>
                     </li>
                     <li class="timeline-item" data-target="tab-3">
-                        <div class="timeline-title">관심사 3. 운동과 반려견과 함께하는 스트레스 극복</div>
+                        <div class="timeline-title">관심사. 운동과 반려견과 함께하는 스트레스 극복</div>
                         <div class="timeline-desc">축구·풋살·테니스와 반려견으로 스트레스 해소, 일상 활력 충전</div>
                     </li>
                 </ol>
