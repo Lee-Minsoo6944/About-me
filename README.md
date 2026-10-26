@@ -1,0 +1,19 @@
+Markdown
+# 🙋‍♂️ 이민수의 자기소개서 페이지
+
+> 성실함과 전문성을 바탕으로 성장하는 이민수의 웹 자기소개서 포트폴리오입니다.
+
+<br>
+
+## 🔗 웹사이트 바로가기
+
+[![Site Shield](https://img.shields.io/badge/Website-바로가기-2ea44f?style=for-the-badge&logo=github&logoColor=white)](https://lee-minsoo6944.github.io/About-me/)
+
+👉 **[https://lee-minsoo6944.github.io/About-me/](https://lee-minsoo6944.github.io/About-me/)**
+
+---
+
+## 📌 주요 소개 내용
+* **자기소개 & 인사말**: 핵심 역량 및 가치관 소개
+* **경력 및 주요 성과**: 프로젝트 경험 및 주요 활동 내역
+* **자격증 및 역량**: 보유 자격증 및 직무 관련 전문 역량
