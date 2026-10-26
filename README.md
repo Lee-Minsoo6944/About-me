@@ -6,8 +6,6 @@
 
 ## 🔗 웹사이트 바로가기
 
-[![Site Shield](https://img.shields.io/badge/Website-바로가기-2ea44f?style=for-the-badge&logo=github&logoColor=white)](https://lee-minsoo6944.github.io/About-me/)
-
 👉 **[https://lee-minsoo6944.github.io/About-me/](https://lee-minsoo6944.github.io/About-me/)**
 
 ---
